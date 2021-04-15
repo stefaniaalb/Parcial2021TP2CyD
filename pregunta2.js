@@ -9,16 +9,29 @@
 
  const inventory = {
     shoes: 10,
-    socks: 6,
+    socks:6 ,
     shirts: 10,
     pants: 5,
   }
 
+  const ventaExitosa = 200
+  const ventaImposible = 500
+
 const sale = function (article, cant){
-  
+  let sale = ventaImposible
+  if (cant < inventory.article) {
+   
+    inventory.article = inventory.article - cant
+    sale = ventaExitosa
+  }
+  return sale
 }
 
 // TESTS (no modificar)
 console.log(sale('shoes',8) === 200 && inventory.shoes === 2);
 console.log(sale('shoes',3) === 500 && inventory.shoes === 2);
 console.log(sale('pants',5) === 200 && inventory.pants === 0);
+
+console.log(sale('shoes',8) === 200 && inventory.shoes === 9);
+console.log(sale('shoes',3) === 500 && inventory.shoes === 10);
+console.log(sale('pants',5) === 200 && inventory.pants === 10);

@@ -22,6 +22,7 @@
    * @param {*} inventors 
    */
   function addDiscoveries(inventor, discoveries, inventors){
+    return inventors.map(inventor => ({...inventor, discoveries: discoveries}))
       
   }
 
